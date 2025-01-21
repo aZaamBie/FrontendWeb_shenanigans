@@ -9,6 +9,14 @@
 
         <!-- LINKING THE CSS, BOOSTRAP + JS -->
         <link rel="stylesheet" type="text/css" href="snbzk_style.css">
+        <!-- font: Nunito -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <!-- font: Smooch Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap" rel="stylesheet">
 
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -18,20 +26,40 @@
 
     </head>
     <body>
+        <div class="overlayBlack">
+
+        </div>
+
         <div class="centerCont">
-            <h1 class="text1 animated" >Bankai</h1>
+            <h1 class="text1 animated announce"
+            style="word-wrap: break-word;" >Bankai</h1>
 
             <!-- overlay -->
             <div class="menu-overlay swords">
+                <div class="sword">  </div>
                 <div class="sword">  </div> <div class="sword">  </div>
                 <div class="sword">  </div> <div class="sword">  </div>
                 <div class="sword">  </div> <div class="sword">  </div>
+                <div class="sword">  </div>
             </div>
         </div>
 
         <div class="bodyCont">
             <p>The final release of Byakuya Kuchiki's zanpaktou.</p>
         </div>
+
+        <footer>
+            <div class="footer_"
+            style="display: flex; align-items: center; justify-content: center; gap: 10px; 
+            height: 4rem;
+            background-image: linear-gradient(#ffb7c5, #b8848f);">
+                <h4 style="color: rgb(0, 0, 0);"> @AzaamDev <small>2025</small> </h4>
+                <!-- <a href="https://za.linkedin.com/in/azaam-holdman-364b60194" target="_blank">
+                    <img class="img-responsive img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+                    style="width: 5vh;" >
+                </a> -->
+            </div>
+        </footer>
 
         <!-- JS -->
         <script>
@@ -41,14 +69,17 @@
                 const elements = document.querySelectorAll('.animated');
                 const swords = document.querySelectorAll('.sword');
                 const text1 = document.querySelector('.text1');
+                const overlay= document.querySelector('overlayBlack');
 
                 if (name=="bankai_load"){
 
-                    setTimeout( function(){ changeText1('Bankai')},0 )
+                    // setTimeout( function(){ overlay.style.opacity = '0';},1000 ) // setTimeout( function(){ overlay.style.opacity = '0';},0 )
 
-                    setTimeout( function(){ changeText1('Senbonzakura Kageyosh')},2000 )
+                    setTimeout( function(){ changeText1('Bankai')},0 ) // setTimeout( function(){ changeText1('Bankai')},0 )
 
-                    setTimeout( function(){ text1.classList.add('active') },4000 )
+                    setTimeout( function(){ changeText1('Senbonzakura Kageyosh')},3000 ) //  setTimeout( function(){ changeText1('Senbonzakura Kageyosh')},2000 )
+
+                    setTimeout( function(){ text1.classList.add('active') },5000 ) // setTimeout( function(){ text1.classList.add('active') },4000 )
 
                 }
 

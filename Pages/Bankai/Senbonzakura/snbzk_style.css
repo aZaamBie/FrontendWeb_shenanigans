@@ -9,7 +9,7 @@ body{
     height: 100%;
     width: 100%;
 
-    color: #ffffff;
+    color: #000000;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -19,37 +19,97 @@ body{
     background-repeat: no-repeat;
 }
 
-
 h1{
     color: #ffffff;
 }
+h1.announce {
+    font-family: "Nunito", serif;
+    font-family: "Smooch Sans", serif;
+    /* font-optical-sizing: auto; */
+    font-weight: bold;
+    font-style: normal;
+
+    font-size: 8rem;
+  }
+
 .centerCont{
-    height: 70vh; /* 70% of the viewport height */
-    width: 100vw;  /* 100% of the viewport width */
+    height: 100vh; /* 70% of the viewport height */
+    /* width: 100vw; */
+    /* Why does using a width of 100vw, add a horizontal bar?? 
+    I just turned it off, and it still takes up the whole width, but it doesn't add the bar?
+    What!? */
+    width: 100%;
     display: flex; /* Centering content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+
     color: white; /* Text color */
     font-family: Arial, sans-serif; /* Font style */
 
+    /* first gradient */
     background-image: linear-gradient(rgb(33, 23, 48), rgb(69, 1, 179) ) !important; 
+    /* second gradient */
+    background-image: linear-gradient(rgb(12, 8, 17), rgb(48, 4, 121) ) !important; 
     z-index: 1;
 
     position: relative;
+
+    margin: auto;
+
+
+    /* new from fireship video */
+    display: block;
+    align-content: center;
 }
 
 .bodyCont{
     z-index: 2;
     position: relative;
+
+    margin: 0 auto;
+    text-align: center;
+
+    background-color: #ffb7c5;
+
+    height: 100vh;
+    /* blossom pink: #F9B7FF */
+}
+
+.overlayBlack{
+    z-index: 3;
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    opacity: 1;
+    transition: opacity 1s ease;
+
+    animation: fadeOut 1s ease-in forwards;
 }
 
 
 .text1{
+    z-index: 4;
     opacity: 100%;
     transition: opacity 1s ease, transform 0.5s ease;
+
+    /* font-size: 4rem; */
+    word-wrap: break-word;
+    text-align: center;
+
 }
 .text1.active{
     opacity: 0%;
+}
+
+@media (max-width: 420px) {
+    .text1 {
+        font-size: 2rem; /* Smaller size on smaller screens: 2rem;*/
+    }
+    h1.announce {
+        font-size: 4rem;
+      }
 }
 
 /* OVERLAYS */
@@ -70,19 +130,25 @@ h1{
     bottom: -200px; /* Start below the visible area */
     width: 50px;
     height: 200px;
-    background-color: rgb(255, 255, 255);
-    border: 3px solid #6627f96f;
+    /* background-color: rgb(255, 255, 255);
+    border: 3px solid #6627f96f; */
 
-    left: 20vw;
+    /* sword svg */
+    background-image: url("sword.svg");
+    width: 100px; height: 300px;
+    left: 10%;
 
-    animation: swordSlideUp 2.7s ease-in-out forwards;
+    bottom: -300px; 
+
+    animation: swordSlideUp 2.6s ease-in-out forwards;
+    animation-delay: 1.5s;
 }
 /* sword position */
-.sword:nth-child(2) { animation-duration: 2.3s; left: 30vw; transform: scaleY(80%); height: 190px; width: 45px; }
-.sword:nth-child(3) { animation-duration: 2s; left: 40vw; transform: scaleY(60%); height: 180px;   width: 40px; }
-.sword:nth-child(4) { animation-duration: 2s; left: 60vw; transform: scaleY(60%); height: 180px;   width: 40px; }
-.sword:nth-child(5) { animation-duration: 2.3s; left: 70vw; transform: scaleY(80%); height: 190px; width: 45px;}
-.sword:nth-child(6) { animation-duration: 2.7s; left: 80vw; transform: scaleY(100%); height: 200px;  width: 50px;}
+.sword:nth-child(2) { animation-duration: 2.3s; left: 20%; transform: scaleX(1);; width: 100px; height: 300px; bottom: -325px; }
+.sword:nth-child(3) { animation-duration: 2s; left: 30%; transform: scaleX(1);;   width: 100px; height: 300px; bottom: -350px;}
+.sword:nth-child(4) { animation-duration: 2s; left: 60%; transform: scaleX(-1);   width: 100px; height: 300px; bottom: -350px;}
+.sword:nth-child(5) { animation-duration: 2.3s; left: 70%; transform: scaleX(-1); width: 100px; height: 300px; bottom: -325px;}
+.sword:nth-child(6) { animation-duration: 2.6s; left: 80%; transform: scaleX(-1); width: 100px; height: 300px;}
 
 
 /* .sword:nth-child(2) { animation-duration: 3.5s; left: 25%; transform: scaleY(80%); height: 140px; }
@@ -93,8 +159,8 @@ h1{
 
 /* load animation */
 @keyframes swordSlideUp {
-    0% {transform: translateY(0vh) scale(1); } /* start at bottom */
-    100%{ transform: translateY(-30vh) scale(1); } /* */
+    0% {transform: translateY(0vh); } /* start at bottom */
+    100%{ transform: translateY(-40vh) ; } /* translateY(-30vh) */
 }
 
 /* float animation */
@@ -103,3 +169,8 @@ h1{
     50% {transform: translateY(-50vh) translateX(5vh) scale(1.2); } /* */
     100%{ transform: translateY(-100vh) translateX(0vh)  scale(1); } /* */
 } 
+
+@keyframes fadeOut {
+    0% { opacity: 1;}
+    100% {opacity: 0;}    
+}
